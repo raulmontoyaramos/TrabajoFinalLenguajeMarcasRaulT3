@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres en raya</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 70px; /* Espacio para el elemento nav */
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 70px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        nav button {
+            background-color: #333;
+            color: #fff;
+            border-color: aqua;
+            margin: 0 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        nav button:hover {
+            background-color: #555;
+        }
+
+        .container {
+            border: 4px solid blueviolet;
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px;
+            margin-top: 70px; /* Espacio para el elemento nav */
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-size: 80px;
+            width: calc(33.33% - 10px);
+            /* Ancho del 33.33% del contenedor con una separación de 10px */
+            height: 100px;
+            border: 3px solid black;
+            box-sizing: border-box;
+            margin: 5px;
+            /* Separación entre los divs internos */
+        }
+
+        .item.hovered {
+            background-color: lightgray;
+        }
+
+        #modal {
+			flex-direction: column;
+			display: flex;
+			visibility: hidden;
+			top: 20vh;
+			background: rgba(0, 0, 0, 0.9);
+			position: fixed;
+			left: 55vh;
+			height: 50vh;
+			width: 75vw;
+			max-width: 600px;
+			max-height: 300px;
+			transition: all .9s;
+			opacity: 0;
+		}
+
+		.contenido {
+			padding: 10px;
+			color: white;
+		}
+
+		#mostrar-modal,
+		#cerrar-modal {
+			display: none;
+		}
+
+		#mostrar-modal+label:hover {
+			background: #388f79;
+		}
+
+		#mostrar-modal:checked~#modal {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		#cerrar-modal+label {
+			color: #fff;
+			font-weight: bold;
+			cursor: pointer;
+			margin: 10px;
+			background: tomato;
+			width: 25px;
+			height: 25px;
+			line-height: 25px;
+			text-align: center;
+			border-radius: 50%;
+			align-self: flex-end;
+		}
+
+		.mostrar {
+			cursor: pointer;
+			margin-top: 2px;
+			padding: 6px;
+		}
+
+        #username-container {
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			padding: 10px;
+			background-color: #333;
+			color: #fff;
+			font-size: 14px;
+		}
+
+		#username-container input[type="text"] {
+			margin-bottom: 5px;
+			padding: 5px;
+			width: 200px;
+		}
+    </style>
+</head>
+
+<body>
+    <nav id="barra">
+        <button onclick="window.location.href = './index.html'">Página principal</button>
+		<button onclick="mostrarInformacion()">Más información</button>
+		<button onclick="window.location.href = './ajuestesNuevos.html'">Ajustes</button>
+		<button onclick="window.location.href = './ter.html'">Reiniciar</button>
+		<button class="mostrar" for="mostrar-modal" onclick="mostrarModal()">Modal</button>
+	</nav>
+
+    <div id="modal">
+		<input id="cerrar-modal" name="modal" type="radio" />
+		<label class="cerrar" for="cerrar-modal" onclick="cerrarModal()">X</label>
+		<div class="contenido">
+			<p>Autor: Fito & fitipaldis</p>
+			<p>Canción: Soldadito marinero</p>
+			<p>Letra: Letras.com</p>
+		</div>
+	</div>
+
+    <div id="username-container">
+		<input type="text" id="username-input" placeholder="Nombre de usuario">
+		<div id="username-display">Sin identificar</div>
+	</div>
+    
+    <div class="container">
+        <div class="item" id="div1"></div>
+        <div class="item" id="div2"></div>
+        <div class="item" id="div3"></div>
+        <div class="item" id="div4"></div>
+        <div class="item" id="div5"></div>
+        <div class="item" id="div6"></div>
+        <div class="item" id="div7"></div>
+        <div class="item" id="div8"></div>
+        <div class="item" id="div9"></div>
+    </div>
+
+    <script>
+        function mostrarInformacion() {
+			alert("Raúl Montoya Ramos\n1DAM\nPágina web publicitaria");
+		}
+        function mostrarModal() {
+			var modal = document.getElementById("modal");
+			modal.style.visibility = "visible";
+			modal.style.opacity = 1;
+		}
+		function cerrarModal() {
+			var modal = document.getElementById("modal");
+			modal.style.visibility = "hidden";
+			modal.style.opacity = 0;
+		}
+        console.log('Bienvenido al juego');
+        var matrix = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ];
+        let check = true;
+        
+        function drawSymbol(id) {
+            var div = document.getElementById(id);
+            var index = parseInt(id.substring(3)) - 1;
+            var rowIndex = Math.floor(index / 3);
+            var colIndex = index % 3;
+
+            
+            if (check == false) {
+                if (matrix[rowIndex][colIndex] === '') {
+                    div.innerHTML = 'O';
+                    div.style.color = 'black';
+
+                    matrix[rowIndex][colIndex] = 'O';
+                }
+            }
+
+            if (check == true) {
+                if (matrix[rowIndex][colIndex] === '') {
+                    div.innerHTML = 'X';
+                    div.style.color = 'black';
+
+                    matrix[rowIndex][colIndex] = 'X';
+                }
+            }
+
+            check = !check;
+
+        }
+
+        window.onload = function () {
+            var items = document.getElementsByClassName('item');
+
+            for (var i = 0; i < items.length; i++) {
+                 items[i].onmouseenter = function () {
+                    this.classList.add('hovered');
+                };
+
+                items[i].onmouseleave = function () {
+                    this.classList.remove('hovered');
+                };
+
+                items[i].onclick = function () {
+                    drawSymbol(this.id);
+                    if (checkWin()) {
+                        alert('¡Felicidades! ¡X ha ganado la partida!');
+                        console.log('X ganó la partida');
+                    }
+                    if (checkWin2()) {
+                        alert('¡Felicidades! ¡O ha ganado la partida!');
+                        console.log('O ganó la partida');
+                    }
+                    if (div.innerHTML == 'X') {
+                        div.innerHTML = 'O';
+                    }
+                };
+            }
+        };
+
+        function checkWin() {
+            // Comprobar filas
+            for (var i = 0; i < 3; i++) {
+                if (matrix[i][0] === 'X' && matrix[i][1] === 'X' && matrix[i][2] === 'X') {
+                    return true;
+                }
+            }
+
+            // Comprobar columnas
+            for (var j = 0; j < 3; j++) {
+                if (matrix[0][j] === 'X' && matrix[1][j] === 'X' && matrix[2][j] === 'X') {
+                    return true;
+                }
+            }
+
+            // Comprobar diagonales
+            if ((matrix[0][0] === 'X' && matrix[1][1] === 'X' && matrix[2][2] === 'X') ||
+                (matrix[0][2] === 'X' && matrix[1][1] === 'X' && matrix[2][0] === 'X')) {
+                return true;
+            }
+
+            return false;
+        }
+
+        function checkWin2() {
+            // Comprobar filas
+            for (var i = 0; i < 3; i++) {
+                if (matrix[i][0] === 'O' && matrix[i][1] === 'O' && matrix[i][2] === 'O') {
+                    return true;
+                }
+            }
+
+            // Comprobar columnas
+            for (var j = 0; j < 3; j++) {
+                if (matrix[0][j] === 'O' && matrix[1][j] === 'O' && matrix[2][j] === 'O') {
+                    return true;
+                }
+            }
+
+            // Comprobar diagonales
+            if ((matrix[0][0] === 'O' && matrix[1][1] === 'O' && matrix[2][2] === 'O') ||
+                (matrix[0][2] === 'O' && matrix[1][1] === 'O' && matrix[2][0] === 'O')) {
+                return true;
+            }
+
+            return false;
+        }
+
+        const usernameInput = document.getElementById("username-input");
+		const usernameDisplay = document.getElementById("username-display");
+
+		// Escuchar el evento "input" del campo de nombre de usuario
+		usernameInput.addEventListener("input", function () {
+			usernameDisplay.textContent = usernameInput.value || "Sin identificar";
+		});
+    </script>
+</body>
+
+</html>

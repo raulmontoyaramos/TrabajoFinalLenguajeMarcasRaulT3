@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="estrellaBlanca.xsl"?>
+<cancion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="estrellaBlanca.xsd">
+    <titulo>Mi estrella blanca</titulo>
+    <autor>Fondo flamenco</autor>
+    <idioma>Español</idioma>
+    <letras>
+    	<estrofa>
+    	    <orden>Estrofa</orden>
+        	<verso>Una vez, soñé lo que el futuro me deparaba</verso>
+        	<verso>Había un patio andalu', mi niño toca la guitarra</verso>
+       	 	<verso>El otro se echaba un cante, mi mujer y mi niña bailaban</verso>
+        	<verso>Al compá' de bulería', mientra le toco la' palma'</verso>
+   		</estrofa> 
+    	<estrofa>
+    	    <orden>Estrofa</orden>
+        	<verso>Los sueños, sueños son y el destino decidirá</verso>
+        	<verso>Lo que el futuro me espera y si mis sueños se cumplirán</verso>
+        	<verso>Y a Dios le estoy pidiendo que se haga realidad</verso>
+        	<verso>Pue' me paso el día durmiendo pa' encontrar la felicidad</verso>
+    	</estrofa>
+    	<estrofa>
+    	    <orden>Estrofa</orden>
+        	<verso>Poder besarla, cada mañana</verso>
+        	<verso>Mirar pa'l lado y verla tumbada en mi cama</verso>
+        	<verso>Será mi noche, será mi día</verso>
+        	<verso>Mi estrella blanca</verso>
+   		</estrofa>
+    	<estrofa>
+    	    <orden>Estrofa</orden>
+        	<verso>Y una casita en el barrio de Santa Cru'</verso>
+        	<verso>Un ventanal y un pequeño patio andalu'</verso>
+        	<verso>Enredaderas que suben por la escalera</verso>
+        	<verso>Por una reja se ve el sol y entra lu'</verso>
+        	<verso>Y cuando llega la noche a mi ventana</verso>
+        	<verso>Cojo jazmine' y huele la flor de mi dama</verso>
+        	<verso>En mi vieja mecedora queó dormido</verso>
+        	<verso>Y al despertar del sueño, todo se había ido</verso>
+    	</estrofa>
+    	<estrofa>
+    	    <orden>Estrofa</orden>
+        	<verso>Ya encontré</verso>
+        	<verso>La que será mi futura esposa</verso>
+        	<verso>La madre de mi' tres hijo'</verso>
+        	<verso>Sevillana, guapa y hermosa</verso>
+        	<verso>Y al bailar parece que vuela</verso>
+        	<verso>Su' pie' son de oro puro</verso>
+        	<verso>Cásate conmigo, flamenca</verso>
+        	<verso>Que amor eterno, yo a ti, te juro</verso>
+    	</estrofa>
+	</letras>
+</cancion>
