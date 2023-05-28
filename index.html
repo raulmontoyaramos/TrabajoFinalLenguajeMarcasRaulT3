@@ -59,6 +59,7 @@
 			visibility: hidden;
 			top: 20vh;
 			background: rgba(0, 0, 0, 0.9);
+			color: white;
 			position: fixed;
 			left: 55vh;
 			height: 50vh;
@@ -180,9 +181,12 @@
 		<input id="cerrar-modal" name="modal" type="radio" />
 		<label class="cerrar" for="cerrar-modal" onclick="cerrarModal()">X</label>
 		<div class="contenido">
-			<p>Autor: Fito & fitipaldis</p>
-			<p>Canción: Soldadito marinero</p>
-			<p>Letra: Letras.com</p>
+			<p>Alumno, curso: Raúl Montoya Ramos, 1DAM</p>
+			<p>Elementos no obvios de la rúbrica: He utilizado JavaScript para que al entrar al juego se muestre por
+				consola el mensaje "Bienvenido al juego" y al clicar un div aparezca el mensaje "Div clicado". Considero
+				que el resto de elementos requeridos por la rúbrica se pueden observar fácilmente, aunque si no es así
+				le agradecería que me lo consultara por moodle o presencialmente en Cenec y estaré encantado de
+				responder cualquier duda sobre mi trabajo</p>
 		</div>
 	</div>
 
@@ -204,30 +208,9 @@
 	</div>
 	<!-- Aquí le meto contenido a la página para asegurarme de que 
 		al hacer scroll se sigue viendo la zona de cambio de modo-->
-	<ol>
-		<li>un texto más largo y ancho texto...</li>
-		<li>texto...</li>
-		<li>texto...</li>
-		<li>texto...</li>
-		<li>texto...</li>
-		<li>texto...</li>
-		<li>texto...</li>
-		<li>texto...</li>
-		<li>texto...</li>
-		<li>texto...</li>
-		<li>texto...</li>
-	</ol>
 
 	<ul>
-		<li>whatevaa</li>
-		<li>whatevaa</li>
-		<li>whatevaa</li>
-		<li>whatevaa</li>
-		<li>whatevaa</li>
-		<li>whatevaa</li>
-		<li>whatevaa</li>
-		<li>whatevaa</li>
-		<li>whatevaa</li>
+		<li>Trabajo final tercer trimestre Raúl Montoya Ramos, 1DAM</li>
 	</ul>
 
 
@@ -264,7 +247,7 @@
 		usernameInput.addEventListener("input", function () {
 			usernameDisplay.textContent = usernameInput.value || "Sin identificar";
 		});
-		
+
 		var modo = leerModoActual();
 		if (modo == "dia") {
 			ponerModoDia();
